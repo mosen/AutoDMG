@@ -16,7 +16,6 @@
 #       /tmp/template.adtmpl \
 #       "/Volumes/OS X Install ESD/Packages/OSInstall.mpkg" [package.pkg ...]
 
-touch /Users/test/Desktop/washere.txt 
 
 declare -r TESTING="no"
 
