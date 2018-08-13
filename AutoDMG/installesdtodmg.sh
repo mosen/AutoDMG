@@ -16,6 +16,7 @@
 #       /tmp/template.adtmpl \
 #       "/Volumes/OS X Install ESD/Packages/OSInstall.mpkg" [package.pkg ...]
 
+touch /Users/test/Desktop/washere.txt 
 
 declare -r TESTING="no"
 
@@ -238,6 +239,10 @@ for package; do
             echo "installer:%100.0"
             sleep 0.25
         else
+            mkdir -p -m 0755 "$sparsemount/private/var/log"
+            chown root:wheel "$sparsemount/private"
+            chown root:wheel "$sparsemount/private/var"
+            chown root:wheel "$sparsemount/private/var/log"
             installer -verboseR -dumplog -pkg "$package" -target "$sparsemount"
             declare -i result=$?
             if [[ $result -ne 0 ]]; then
